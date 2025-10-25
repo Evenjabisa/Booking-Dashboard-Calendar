@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🏨 Booking Dashboard — Calendar
 
 A clean and interactive dashboard for managing bookings, featuring a **calendar view** and a **bookings table**, with the ability to add, edit, confirm, cancel, and delete bookings using modals.
