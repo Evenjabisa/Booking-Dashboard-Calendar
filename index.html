@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Booking Dashboard — Calendar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app"> 
+    <!-- LEFT: Calendar -->
+    <section class="panel calendar-panel">
+      <div class="panel-header">
+        <div class="title">Reservations Calendar</div>
+        <div class="controls">
+          <button id="prevMonth" class="icon-btn">◀</button>
+          <div id="monthYear" class="month-label"></div>
+          <button id="nextMonth" class="icon-btn">▶</button>
+        </div>
+      </div>
+
+      <div class="weekdays">
+        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+      </div>
+
+      <div id="calendar" class="calendar-grid"></div>
+
+      <div class="panel-footer">
+        <button id="openAddBtn" class="btn primary">+ Add Booking</button>
+      </div>
+    </section>
+
+    <!-- RIGHT: Bookings table -->
+    <section class="panel table-panel">
+      <div class="panel-header">
+        <div class="title">Bookings</div>
+        <div class="bulk-actions">
+          <button id="confirmSelected" class="btn small">Confirm Selected</button>
+          <button id="cancelSelected" class="btn small muted">Cancel Selected</button>
+          <button id="deleteSelected" class="btn small danger">Delete Selected</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="bookingsTable" class="bookings-table">
+          <thead>
+            <tr>
+              <th><input id="selectAll" type="checkbox" /></th>
+              <th>Guest</th>
+              <th>Unit</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Duration</th>
+              <th>Deposit</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- rows inserted by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- Add Booking Modal -->
+  <div id="addModal" class="modal">
+    <div class="modal-panel">
+      <button class="close modal-close">&times;</button>
+      <h3>New Booking</h3>
+      <form id="addForm">
+        <label>Guest Name
+          <input id="guestInput" type="text" required placeholder="e.g. John Doe" />
+        </label>
+
+        <label>Unit
+          <input id="unitInput" type="text" placeholder="e.g. A101" />
+        </label>
+
+        <div class="row">
+          <label>Start Date
+            <input id="startInput" type="date" required />
+          </label>
+          <label>End Date
+            <input id="endInput" type="date" required />
+          </label>
+        </div>
+
+        <label>Deposit Paid
+          <select id="depositInput">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary full">Save Booking</button>
+          <button type="button" class="btn muted full modal-close">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Booking Details Modal -->
+  <div id="detailModal" class="modal">
+    <div class="modal-panel">
+      <button class="close detail-close">&times;</button>
+      <h3>Booking Details</h3>
+      <div class="detail-grid">
+        <div><strong>Guest:</strong> <span id="d_guest"></span></div>
+        <div><strong>Unit:</strong> <span id="d_unit"></span></div>
+        <div><strong>Start:</strong> <span id="d_start"></span></div>
+        <div><strong>End:</strong> <span id="d_end"></span></div>
+        <div><strong>Duration:</strong> <span id="d_duration"></span></div>
+        <div><strong>Deposit:</strong> <span id="d_deposit"></span></div>
+        <div><strong>Status:</strong> <span id="d_status"></span></div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="detailConfirm" class="btn primary">Confirm</button>
+        <button id="detailCancel" class="btn muted">Cancel</button>
+        <button id="detailDelete" class="btn danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toasts -->
+  <div id="toasts" class="toasts"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
