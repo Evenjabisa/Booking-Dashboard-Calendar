@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🏨 Booking Dashboard — Calendar
 
 A clean and interactive dashboard for managing bookings, featuring a **calendar view** and a **bookings table**, with the ability to add, edit, confirm, cancel, and delete bookings using modals.
@@ -54,3 +55,6 @@ A clean and interactive dashboard for managing bookings, featuring a **calendar 
   * 🗑️ **Delete Selected** — Permanently delete selected bookings.
 
 
+=======
+# Booking-Dashboard-Calendar
+>>>>>>> dda83f5846d18927241b1a0f8d88c3215da50cae
